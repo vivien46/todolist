@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	<title>Todolist home page</title>
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Ma To-Do Liste</h1>
+
+
+	<div class="card mb-3" style="max-width: 20rem; ">
+			<div class="card-header bg-danger">
+					A faire
+			</div>
+			<div class="card-body">
+		{% for task in tasks %}
+            {% if task.status == 1 %}
+				<p class="card-text">{{ task.description }}
+					Le
+					{{ task.dateTask | date('d/m/Y à H:i:s') }}</p>
+            {% endif %}
+		{% endfor %}
+			</div>
+	</div>
+
+        <div class="card mb-3" style="max-width: 20rem; ">
+                    <div class="card-header bg-success">
+                           Terminée
+                    </div>
+                    <div class="card-body">
+                {% for task in tasks %}
+                    {% if task.status == 3 %}
+                        <p class="card-text">{{ task.description }}
+                            Le
+                            {{ task.dateTask | date('d/m/Y à H:i:s') }}</p>
+                    {% endif %}
+                {% endfor %}
+                    </div>
+        </div>
+
+	<a href="{{ path('app_new') }}">
+		<button type="button" class="btn btn-success btn-sm">Ajouter une tache</button>
+	</a>
+{% endblock %}
