@@ -1,3 +1,3 @@
 # todolist
 
-**application** permettant de créer des taches, de les gérés et de les archivés en Symfony 6.4
+**application** permettant de créer des taches, de les gérer et de les archiver en Symfony 6.4
